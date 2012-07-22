@@ -7,6 +7,11 @@ gem 'rails', '3.0.9'
 
 gem 'mysql2', '~> 0.2.6'
 
+group :development do
+  gem 'rspec-rails', '2.6.1'
+  gem 'annotate', '2.4.0'
+end
+
 # Use unicorn as the web server
 # gem 'unicorn'
 

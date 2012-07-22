@@ -1,8 +1,12 @@
 Forvalid::Application.routes.draw do
+  get "test/index"
+
   resources :microposts
 
   resources :users
 
+  match 'select' => 'test#index'
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

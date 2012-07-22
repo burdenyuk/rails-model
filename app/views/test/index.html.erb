@@ -1,0 +1,87 @@
+<h1>Tests of data selection</h1>
+
+<h2>User.all</h2>
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Login</th>
+    <th>Name</th>
+    <th>Last name</th>
+    <th>Email</th>
+    <th>Description</th>
+  </tr>
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.id %></td>
+    <td><%= user.login %></td>
+    <td><%= user.name %></td>
+    <td><%= user.last_name %></td>
+    <td><%= user.email %></td>
+    <td><%= user.description %></td>
+  </tr>
+<% end %>
+</table>
+<p>-----------------------------------------------------</p>
+
+<h2>User.first</h2>
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Login</th>
+    <th>Name</th>
+    <th>Last name</th>
+    <th>Email</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><%= @first.id %></td>
+    <td><%= @first.login %></td>
+    <td><%= @first.name %></td>
+    <td><%= @first.last_name %></td>
+    <td><%= @first.email %></td>
+    <td><%= @first.description %></td>
+  </tr>
+</table>
+<p>-----------------------------------------------------</p>
+
+<h2>User.last</h2>
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Login</th>
+    <th>Name</th>
+    <th>Last name</th>
+    <th>Email</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><%= @last.id %></td>
+    <td><%= @last.login %></td>
+    <td><%= @last.name %></td>
+    <td><%= @last.last_name %></td>
+    <td><%= @last.email %></td>
+    <td><%= @last.description %></td>
+  </tr>
+</table>
+<p>-----------------------------------------------------</p>
+
+<h2>User.find(2)</h2>
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Login</th>
+    <th>Name</th>
+    <th>Last name</th>
+    <th>Email</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><%= @by_id.id %></td>
+    <td><%= @by_id.login %></td>
+    <td><%= @by_id.name %></td>
+    <td><%= @by_id.last_name %></td>
+    <td><%= @by_id.email %></td>
+    <td><%= @by_id.description %></td>
+  </tr>
+</table>
+<p>-----------------------------------------------------</p>

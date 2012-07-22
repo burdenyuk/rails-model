@@ -2,12 +2,12 @@
 #
 # Table name: posts
 #
-#  id            :integer(4)      not null, primary key
-#  title         :string(255)
-#  message       :text
-#  created_at    :datetime
-#  updated_at    :datetime
-#  authors_email :string(255)
+#  id         :integer(4)      not null, primary key
+#  title      :string(255)
+#  message    :text
+#  user       :integer(4)
+#  created_at :datetime
+#  updated_at :datetime
 #
 
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html

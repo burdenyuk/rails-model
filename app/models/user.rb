@@ -14,4 +14,15 @@
 
 class User < ActiveRecord::Base
   has_many :posts
+
+  validates :login, :name, :last_name, :email, presence: true
+  validates :login, :name, :last_name, format: { with: /\A[A-Za-z]+\Z/, message: "should contain only letters" }
+  validates :login, :name, :last_name, length: { minimum: 2, maximum: 50 }
+  validates :email, format: { with: /\b[A-Z0-9._%a-z\-]+@(?:[A-Z0-9a-z\-]+\.)+[A-Za-z]{2,4}\z/, message: "incorrect" }
+  validates :email, :login, uniqueness: true
+  validate :check_login_for_default
+
+  def check_login_for_default
+    errors.add(:login, "can't be 'default'") if self.login == "default"
+  end
 end

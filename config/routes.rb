@@ -1,5 +1,5 @@
 Forvalid::Application.routes.draw do
-  resources :posts
+  resources :microposts
 
   resources :users
 

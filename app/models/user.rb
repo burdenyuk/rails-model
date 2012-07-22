@@ -22,6 +22,10 @@ class User < ActiveRecord::Base
   validates :email, :login, uniqueness: true
   validate :check_login_for_default
 
+  scope :id_exp, lambda{|id| where('id > ?', id)}
+  scope :another_scope, limit(2).offset(0)
+  #default_scope order('id ASD')
+
   def check_login_for_default
     errors.add(:login, "can't be 'default'") if self.login == "default"
   end

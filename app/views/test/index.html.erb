@@ -85,3 +85,371 @@
   </tr>
 </table>
 <p>-----------------------------------------------------</p>
+
+<h2>User.where('id > ?', 1)</h2>
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Login</th>
+    <th>Name</th>
+    <th>Last name</th>
+    <th>Email</th>
+    <th>Description</th>
+  </tr>
+<% @where1.each do |user| %>
+  <tr>
+    <td><%= user.id %></td>
+    <td><%= user.login %></td>
+    <td><%= user.name %></td>
+    <td><%= user.last_name %></td>
+    <td><%= user.email %></td>
+    <td><%= user.description %></td>
+  </tr>
+<% end %>
+</table>
+<p>-----------------------------------------------------</p>
+
+<h2>User.where('id > ? AND last_name = ?', 1, 'test')</h2>
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Login</th>
+    <th>Name</th>
+    <th>Last name</th>
+    <th>Email</th>
+    <th>Description</th>
+  </tr>
+<% @where2.each do |user| %>
+  <tr>
+    <td><%= user.id %></td>
+    <td><%= user.login %></td>
+    <td><%= user.name %></td>
+    <td><%= user.last_name %></td>
+    <td><%= user.email %></td>
+    <td><%= user.description %></td>
+  </tr>
+<% end %>
+</table>
+<p>-----------------------------------------------------</p>
+
+<h2>User.where(:id => 2..3)</h2>
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Login</th>
+    <th>Name</th>
+    <th>Last name</th>
+    <th>Email</th>
+    <th>Description</th>
+  </tr>
+<% @where3.each do |user| %>
+  <tr>
+    <td><%= user.id %></td>
+    <td><%= user.login %></td>
+    <td><%= user.name %></td>
+    <td><%= user.last_name %></td>
+    <td><%= user.email %></td>
+    <td><%= user.description %></td>
+  </tr>
+<% end %>
+</table>
+<p>-----------------------------------------------------</p>
+
+<h2>User.where(:id => [1,3])</h2>
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Login</th>
+    <th>Name</th>
+    <th>Last name</th>
+    <th>Email</th>
+    <th>Description</th>
+  </tr>
+<% @where4.each do |user| %>
+  <tr>
+    <td><%= user.id %></td>
+    <td><%= user.login %></td>
+    <td><%= user.name %></td>
+    <td><%= user.last_name %></td>
+    <td><%= user.email %></td>
+    <td><%= user.description %></td>
+  </tr>
+<% end %>
+</table>
+<p>-----------------------------------------------------</p>
+
+<h2>User.order('id DESC')</h2>
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Login</th>
+    <th>Name</th>
+    <th>Last name</th>
+    <th>Email</th>
+    <th>Description</th>
+  </tr>
+<% @order1.each do |user| %>
+  <tr>
+    <td><%= user.id %></td>
+    <td><%= user.login %></td>
+    <td><%= user.name %></td>
+    <td><%= user.last_name %></td>
+    <td><%= user.email %></td>
+    <td><%= user.description %></td>
+  </tr>
+<% end %>
+</table>
+<p>-----------------------------------------------------</p>
+
+<h2>User.select("id, name")</h2>
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+  </tr>
+<% @select1.each do |user| %>
+  <tr>
+    <td><%= user.id %></td>
+    <td><%= user.name %></td>
+  </tr>
+<% end %>
+</table>
+<p>-----------------------------------------------------</p>
+
+<h2>User.select("id, name").last</h2>
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+  </tr>
+  <tr>
+    <td><%= @select2.id %></td>
+    <td><%= @select2.name %></td>
+  </tr>
+</table>
+<p>-----------------------------------------------------</p>
+
+<h2>User.limit(1).offset(1)</h2>
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Login</th>
+    <th>Name</th>
+    <th>Last name</th>
+    <th>Email</th>
+    <th>Description</th>
+  </tr>
+<% @limitoffset1.each do |user| %>
+  <tr>
+    <td><%= user.id %></td>
+    <td><%= user.login %></td>
+    <td><%= user.name %></td>
+    <td><%= user.last_name %></td>
+    <td><%= user.email %></td>
+    <td><%= user.description %></td>
+  </tr>
+<% end %>
+</table>
+<p>-----------------------------------------------------</p>
+
+<h2>User.where('id <= 3').limit(2).order('name').except(:limit)</h2>
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Login</th>
+    <th>Name</th>
+    <th>Last name</th>
+    <th>Email</th>
+    <th>Description</th>
+  </tr>
+<% @except.each do |user| %>
+  <tr>
+    <td><%= user.id %></td>
+    <td><%= user.login %></td>
+    <td><%= user.name %></td>
+    <td><%= user.last_name %></td>
+    <td><%= user.email %></td>
+    <td><%= user.description %></td>
+  </tr>
+<% end %>
+</table>
+<p>-----------------------------------------------------</p>
+
+<h2>User.where('id <= 3').limit(2).order('name').only(:where, :limit)</h2>
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Login</th>
+    <th>Name</th>
+    <th>Last name</th>
+    <th>Email</th>
+    <th>Description</th>
+  </tr>
+<% @only.each do |user| %>
+  <tr>
+    <td><%= user.id %></td>
+    <td><%= user.login %></td>
+    <td><%= user.name %></td>
+    <td><%= user.last_name %></td>
+    <td><%= user.email %></td>
+    <td><%= user.description %></td>
+  </tr>
+<% end %>
+</table>
+<p>-----------------------------------------------------</p>
+
+<h2>Micropost.joins(:user)</h2>
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Title</th>
+    <th>Message</th>
+    <th>User_id</th>
+  </tr>
+<% @joins1.each do |user| %>
+  <tr>
+    <td><%= user.id %></td>
+    <td><%= user.title %></td>
+    <td><%= user.message %></td>
+    <td><%= user.user_id %></td>
+  </tr>
+<% end %>
+</table>
+<p>-----------------------------------------------------</p>
+
+<h2>Micropost.includes(:user)</h2>
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Title</th>
+    <th>Message</th>
+    <th>User_id</th>
+  </tr>
+<% @includes1.each do |user| %>
+  <tr>
+    <td><%= user.id %></td>
+    <td><%= user.title %></td>
+    <td><%= user.message %></td>
+    <td><%= user.user_id %></td>
+  </tr>
+<% end %>
+</table>
+<p>-----------------------------------------------------</p>
+
+<h2>User.find_by_login('admin')</h2>
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Login</th>
+    <th>Name</th>
+    <th>Last name</th>
+    <th>Email</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><%= @find1.id %></td>
+    <td><%= @find1.login %></td>
+    <td><%= @find1.name %></td>
+    <td><%= @find1.last_name %></td>
+    <td><%= @find1.email %></td>
+    <td><%= @find1.description %></td>
+  </tr>
+</table>
+<p>-----------------------------------------------------</p>
+
+<h2>User.find_by_name('test')</h2>
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Login</th>
+    <th>Name</th>
+    <th>Last name</th>
+    <th>Email</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><%= @find2.id %></td>
+    <td><%= @find2.login %></td>
+    <td><%= @find2.name %></td>
+    <td><%= @find2.last_name %></td>
+    <td><%= @find2.email %></td>
+    <td><%= @find2.description %></td>
+  </tr>
+</table>
+<p>-----------------------------------------------------</p>
+
+<h2>User.find_by_sql('SELECT * FROM users WHERE name="test"')</h2>
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Login</th>
+    <th>Name</th>
+    <th>Last name</th>
+    <th>Email</th>
+    <th>Description</th>
+  </tr>
+  <% @find3.each do |user| %>
+  <tr>
+    <td><%= user.id %></td>
+    <td><%= user.login %></td>
+    <td><%= user.name %></td>
+    <td><%= user.last_name %></td>
+    <td><%= user.email %></td>
+    <td><%= user.description %></td>
+  </tr>
+<% end %>
+</table>
+<p>-----------------------------------------------------</p>
+
+<h2>User.connection.select_all('SELECT * FROM users WHERE name="test"')</h2>
+
+<%= @selall %>
+
+<p>-----------------------------------------------------</p>
+
+<h2>User.exists?(2) # checks by id</h2>
+
+<%= User.exists?(2) %>
+
+<p>-----------------------------------------------------</p>
+
+<h2>User.where(name: 'admin').exists?</h2>
+
+<%= User.where(name: 'admin').exists? %>
+
+<p>-----------------------------------------------------</p>
+
+<h2>User.count</h2>
+
+<%= User.count %>
+
+<p>-----------------------------------------------------</p>
+
+<h2>User.maximum(:id)</h2>
+
+<%= User.maximum(:id) %>
+
+<p>-----------------------------------------------------</p>
+
+<h2>scope :id_exp, lambda{|id| where('id > ?', id)}</h2>
+<h2>User.id_exp(2)</h2>
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Login</th>
+    <th>Name</th>
+    <th>Last name</th>
+    <th>Email</th>
+    <th>Description</th>
+  </tr>
+  <% User.id_exp(2).each do |user| %>
+  <tr>
+    <td><%= user.id %></td>
+    <td><%= user.login %></td>
+    <td><%= user.name %></td>
+    <td><%= user.last_name %></td>
+    <td><%= user.email %></td>
+    <td><%= user.description %></td>
+  </tr>
+<% end %>
+</table>

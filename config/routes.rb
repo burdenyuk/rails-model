@@ -1,9 +1,15 @@
 Forvalid::Application.routes.draw do
-  get "test/index"
+  namespace :admin do
+    resources :products
+  end
 
-  resources :microposts
+  scope "/blog" do
+    resources :microposts
+  end
 
   resources :users
+
+  get "test/index"
 
   match 'select' => 'test#index'
   

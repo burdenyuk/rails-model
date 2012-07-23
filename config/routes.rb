@@ -3,7 +3,7 @@ Forvalid::Application.routes.draw do
     resources :products
   end
 
-  scope "/list" do
+  scope '/list' do
     resources :users
   end
 
@@ -16,9 +16,16 @@ Forvalid::Application.routes.draw do
     end
   end
 
-  get "test/index"
+  get 'test/index'
 
-  match 'select' => 'test#index'
+  match 'select' => 'test#index', as: :select_of_data
+  match 'posts/new' => 'microposts#new'
+  match 'posts/:id' => 'microposts#show'
+  match 'posts/:id/edit' => 'microposts#edit'
+
+  match '/posts' => redirect('/microposts')
+
+  match 'posts/*trash/:id' => 'microposts#show'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

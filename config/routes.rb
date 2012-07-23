@@ -7,6 +7,8 @@ Forvalid::Application.routes.draw do
     resources :users
   end
 
+  resources :users, only: [:index, :show]
+
   #nested resources
   resources :microposts do
     resources :comments

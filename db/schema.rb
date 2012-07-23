@@ -10,13 +10,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120723185514) do
+ActiveRecord::Schema.define(:version => 20120723194447) do
 
   create_table "admin_products", :force => true do |t|
     t.string   "name"
     t.string   "code"
     t.string   "type"
     t.text     "desc"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "comments", :force => true do |t|
+    t.integer  "user_id"
+    t.text     "message"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

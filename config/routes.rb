@@ -3,11 +3,18 @@ Forvalid::Application.routes.draw do
     resources :products
   end
 
-  scope "/blog" do
-    resources :microposts
+  scope "/list" do
+    resources :users
   end
 
-  resources :users
+  #nested resources
+  resources :microposts do
+    resources :comments
+    
+    collection do
+      get 'search'
+    end
+  end
 
   get "test/index"
 
